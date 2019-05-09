@@ -64,49 +64,4 @@
         android:textSize="64sp"
         android:text="0"
         />
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal">-->
-
-    <!--<EditText-->
-    <!--android:id="@+id/input_1"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_margin="16dp"-->
-    <!--android:inputType="number" />-->
-
-    <!--<EditText-->
-    <!--android:id="@+id/input_2"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_margin="16dp"-->
-    <!--android:inputType="number" />-->
-    <!--</LinearLayout>-->
-
-
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="horizontal">-->
-    <!---->
-    <!--<EditText-->
-    <!--android:id="@+id/input_3"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:inputType="number"-->
-    <!--android:layout_margin="16dp"-->
-    <!--android:hint="ksffjs"/>-->
-    <!--<EditText-->
-    <!--android:id="@+id/input_4"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:inputType="number"-->
-    <!--android:layout_margin="16dp"-->
-    <!--android:hint="jdfsjkdb"/>-->
-    <!---->
-    <!--</LinearLayout>-->
-
-
 </LinearLayout>
