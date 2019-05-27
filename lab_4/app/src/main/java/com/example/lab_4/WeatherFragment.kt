@@ -27,16 +27,6 @@ class WeatherFragment : ListFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        ApiClient()
-
-//        listAdapter = object : ArrayAdapter<String>(activity, android.R.layout.simple_list_item_activated_1, weatherData) {
-//            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-//                val v = super.getView(position, convertView, parent)
-//                v.setBackgroundColor(Color.GRAY)
-//                return v
-//            }
-//
-//        }
 
         listAdapter = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_activated_1, weatherData)
 
