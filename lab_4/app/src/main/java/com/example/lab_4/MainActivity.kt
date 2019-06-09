@@ -23,7 +23,23 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<List<WeatherModel>>, response: Response<List<WeatherModel>>) {
-                Log.e("onResponse", response.body().toString())
+
+                //move tranform to utils class, maybe add new data class, that will hold transformed data, maybe add function
+                //that will calculate mean of temp and feel
+
+                val groupedData = response.body()?.groupBy { it.date }
+                val data = mutableListOf<WeatherModel>()
+                for ((date, weatherList) in groupedData!!) {
+                    val weather = weatherList.first()
+//                    val weather = WeatherModel(date, temp = weatherList.first().temp, feel = weatherList.first().feel)
+                    weather.tods = weatherList
+                    data.add(weather)
+                }
+
+
+                WeatherFragment.adapter.addAll(data)
+                WeatherFragment.adapter.notifyDataSetChanged()
+//                Log.e("onResponse", response.body().toString())
             }
         })
     }

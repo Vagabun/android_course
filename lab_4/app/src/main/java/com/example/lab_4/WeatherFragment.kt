@@ -7,28 +7,35 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.FragmentTransaction
-import com.google.gson.Gson
+import com.example.lab_4.API.model.WeatherModel
 
 
 class WeatherFragment : ListFragment() {
 
     companion object {
-        val weatherData = arrayOf(
+        val weatherData = mutableListOf(
             "Day 1",
             "Day 2",
             "Day 3",
             "Day 4",
             "Day 5"
         )
+
+        lateinit var adapter: ArrayAdapter<WeatherModel>
+
     }
 
     private var dualPane: Boolean = false
     private var curCheckPosition = 0
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        listAdapter = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_activated_1, weatherData)
+        adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_activated_1)
+        listAdapter = adapter
+
+//        listAdapter = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_activated_1)
 
         val weatherDetailsFrame: View? = activity?.findViewById(R.id.weatherDetails)
         dualPane = weatherDetailsFrame?.visibility == View.VISIBLE

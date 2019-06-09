@@ -22,6 +22,7 @@ class WeatherDetailsFragment : Fragment() {
             val f = WeatherDetailsFragment()
 
             val args = Bundle()
+
             args.putInt("index", index)
             f.arguments = args
 

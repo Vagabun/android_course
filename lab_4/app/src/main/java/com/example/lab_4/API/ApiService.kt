@@ -11,6 +11,6 @@ interface ApiService {
         @GET("/meteo.htm")
         fun requestWeather(): Call<List<WeatherModel>>
     companion object {
-        val API_ENDPOINT = "https://meteo.vagabun.now.sh"
+        const val API_ENDPOINT = "https://meteo.vagabun.now.sh"
     }
 }
