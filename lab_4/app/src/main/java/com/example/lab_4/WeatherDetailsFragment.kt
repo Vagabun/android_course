@@ -5,26 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ArrayAdapter
+import android.widget.ListView
 
 class WeatherDetailsFragment : Fragment() {
 
     companion object {
-        val weatherDetailsData = arrayOf(
-            "one",
-            "two",
-            "three",
-            "four",
-            "five"
-        )
+        lateinit var weatherDetailsData: List<Weather>
 
         fun newInstance(index: Int): WeatherDetailsFragment {
             val f = WeatherDetailsFragment()
 
             val args = Bundle()
-
+//            args.putParcelableArrayList("weather", ArrayList())
             args.putInt("index", index)
             f.arguments = args
+
 
             return f
         }
@@ -39,13 +35,8 @@ class WeatherDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-//        if (container == null)
-//            return null
-
-        return TextView(activity).apply {
-            text = weatherDetailsData[shownIndex]
-
+        return ListView(activity).apply {
+            adapter = ArrayAdapter<WeatherDetails>(activity, android.R.layout.simple_list_item_1, weatherDetailsData[shownIndex].details)
         }
 
         //return inflater.inflate(R.layout.fragment_weather_details, container, false)

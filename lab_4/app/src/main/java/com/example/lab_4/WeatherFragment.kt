@@ -7,35 +7,23 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.FragmentTransaction
-import com.example.lab_4.API.model.WeatherModel
 
 
 class WeatherFragment : ListFragment() {
 
     companion object {
-        val weatherData = mutableListOf(
-            "Day 1",
-            "Day 2",
-            "Day 3",
-            "Day 4",
-            "Day 5"
-        )
-
-        lateinit var adapter: ArrayAdapter<WeatherModel>
-
+//        lateinit var adapter: ArrayAdapter<WeatherModel>
+        lateinit var adapter: ArrayAdapter<Weather>
     }
 
     private var dualPane: Boolean = false
     private var curCheckPosition = 0
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_activated_1)
         listAdapter = adapter
-
-//        listAdapter = ArrayAdapter<String>(activity, android.R.layout.simple_list_item_activated_1)
 
         val weatherDetailsFrame: View? = activity?.findViewById(R.id.weatherDetails)
         dualPane = weatherDetailsFrame?.visibility == View.VISIBLE
@@ -67,14 +55,14 @@ class WeatherFragment : ListFragment() {
             if (weatherDetails?.shownIndex != index) {
                 weatherDetails = WeatherDetailsFragment.newInstance(index)
 
+
                 fragmentManager?.beginTransaction()?.apply {
                     replace(R.id.weatherDetails, weatherDetails)
                     setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     commit()
                 }
             }
-        }
-        else {
+        } else {
             val intent = Intent().apply {
                 setClass(activity, WeatherDetailsActivity::class.java)
                 putExtra("index", index)
@@ -91,6 +79,5 @@ class WeatherFragment : ListFragment() {
 //        // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_weather, container, false)
 //    }
-
 
 }
